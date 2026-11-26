@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/images/clicflow-splash.png" alt="ClicFlow" width="420">
+  <img src="https://app.clicflow.fr/images/logo-clicflow-light.png?v=1793924912" alt="ClicFlow" width="320">
 </p>
 
 <h1 align="center">ClicFlow</h1>
