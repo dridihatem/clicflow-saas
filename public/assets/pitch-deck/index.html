@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ClicFlow — Qatar Pitch Deck (12 slides)</title>
+  <meta name="description" content="ClicFlow — AI voice business OS for agencies, brokers & SMEs. CRM, invoices, real estate, POS, Nova." />
+  <link rel="preconnect" href="https://fonts.bunny.net" />
+  <link href="https://fonts.bunny.net/css?family=figtree:500,600,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --bg: #070d18;
+      --panel: #0f172a;
+      --card: rgba(15, 23, 42, 0.88);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --line: #1e293b;
+      --accent: #22d3ee;
+      --accent-dim: #0891b2;
+      --good: #34d399;
+      --bad: #f87171;
+      --warn: #fbbf24;
+      --font: "Figtree", "Segoe UI", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; background: var(--bg); color: var(--text); font-family: var(--font); }
+    .deck { height: 100%; display: flex; flex-direction: column; }
+    .chrome {
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      padding: 0.65rem 1.2rem; border-bottom: 1px solid var(--line);
+      background: rgba(7, 13, 24, 0.96); flex-shrink: 0;
+    }
+    .brand { display: flex; align-items: center; gap: 0.6rem; font-weight: 700; }
+    .brand-mark {
+      width: 2rem; height: 2rem; border-radius: 0.55rem;
+      background: linear-gradient(145deg, #22d3ee, #0891b2);
+      display: grid; place-items: center; color: #0b1220; font-size: 0.95rem;
+    }
+    .brand span { color: var(--accent); }
+    .chrome .meta { color: var(--muted); font-size: 0.85rem; }
+    .chrome .nav { display: flex; gap: 0.4rem; }
+    .chrome button {
+      appearance: none; border: 1px solid var(--line); background: var(--panel); color: var(--text);
+      border-radius: 0.5rem; padding: 0.35rem 0.65rem; font-size: 0.78rem; cursor: pointer; font-family: var(--font);
+    }
+    .chrome button:hover { border-color: var(--accent-dim); color: var(--accent); }
+    .chrome button:disabled { opacity: 0.35; cursor: not-allowed; }
+    .progress { height: 3px; background: var(--line); flex-shrink: 0; }
+    .progress > span {
+      display: block; height: 100%;
+      background: linear-gradient(90deg, var(--accent-dim), var(--accent));
+      width: 0%; transition: width 0.25s ease;
+    }
+    .stage { flex: 1; position: relative; overflow: hidden; }
+    .slide {
+      position: absolute; inset: 0; display: none; padding: clamp(1rem, 2.8vw, 2.4rem);
+      overflow: auto;
+      background:
+        radial-gradient(ellipse 70% 55% at 100% 0%, rgba(34, 211, 238, 0.12), transparent 55%),
+        radial-gradient(ellipse 55% 45% at 0% 100%, rgba(8, 145, 178, 0.1), transparent 50%),
+        var(--bg);
+    }
+    .slide.active { display: flex; flex-direction: column; justify-content: center; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 0.45rem; color: var(--accent);
+      font-size: 0.74rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+      margin-bottom: 0.65rem;
+    }
+    .title-block { margin-bottom: 1rem; }
+    .title {
+      font-size: clamp(1.55rem, 3.6vw, 2.55rem); line-height: 1.15; font-weight: 700;
+      max-width: 22ch; margin-bottom: 0.35rem;
+    }
+    .subtitle { font-size: clamp(0.9rem, 1.4vw, 1.05rem); color: var(--muted); font-weight: 500; max-width: 42ch; }
+    .cover .title { font-size: clamp(2rem, 5vw, 3.4rem); max-width: none; }
+    .cover .brand-huge {
+      font-size: clamp(1.9rem, 4.5vw, 3.2rem); font-weight: 750; margin-bottom: 0.2rem;
+    }
+    .cover .brand-huge span { color: var(--accent); }
+    .tagline { color: var(--muted); font-size: clamp(0.92rem, 1.5vw, 1.1rem); margin: 0.55rem 0 1rem; max-width: 42ch; line-height: 1.5; }
+    .grid-2 { display: grid; gap: 1rem; }
+    @media (min-width: 900px) {
+      .grid-2 { grid-template-columns: 1.05fr 1fr; align-items: center; }
+      .g2 { grid-template-columns: 1fr 1fr; }
+      .g3 { grid-template-columns: repeat(3, 1fr); }
+      .g4 { grid-template-columns: repeat(4, 1fr); }
+    }
+    .cards { display: grid; gap: 0.65rem; }
+    .card {
+      background: var(--card); border: 1px solid var(--line); border-radius: 0.9rem;
+      padding: 0.8rem 0.9rem; display: flex; gap: 0.7rem; align-items: flex-start;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .card:hover { border-color: rgba(34, 211, 238, 0.4); transform: translateY(-1px); }
+    .card.compact { padding: 0.65rem 0.75rem; }
+    .icon {
+      flex-shrink: 0; width: 2.2rem; height: 2.2rem; border-radius: 0.65rem;
+      display: grid; place-items: center; background: rgba(34, 211, 238, 0.12);
+      color: var(--accent); font-size: 0.95rem; border: 1px solid rgba(34, 211, 238, 0.25);
+    }
+    .card h3 { font-size: 0.92rem; font-weight: 700; margin-bottom: 0.15rem; line-height: 1.35; }
+    .card p { color: var(--muted); font-size: 0.78rem; line-height: 1.4; }
+    .card .sub { display: block; color: #64748b; font-size: 0.7rem; margin-top: 0.1rem; }
+    .chip-cloud { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
+    .chip {
+      border: 1px solid var(--line); background: rgba(15, 23, 42, 0.85); color: #cbd5e1;
+      font-size: 0.72rem; padding: 0.32rem 0.6rem; border-radius: 999px;
+      display: inline-flex; align-items: center; gap: 0.35rem;
+    }
+    .chip i { color: var(--accent); font-size: 0.7rem; }
+    .kpi-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.55rem; }
+    @media (min-width: 700px) {
+      .kpi-row.k4 { grid-template-columns: repeat(4, 1fr); }
+      .kpi-row.k5 { grid-template-columns: repeat(5, 1fr); }
+    }
+    .kpi {
+      background: var(--card); border: 1px solid var(--line); border-radius: 0.9rem;
+      padding: 0.75rem 0.5rem; text-align: center;
+    }
+    .kpi .val {
+      font-size: clamp(1.15rem, 2.4vw, 1.65rem); font-weight: 750; color: var(--accent); line-height: 1.1;
+    }
+    .kpi .lbl { margin-top: 0.3rem; color: var(--muted); font-size: 0.7rem; line-height: 1.3; }
+    .compare-wrap { overflow: auto; border-radius: 0.9rem; border: 1px solid var(--line); background: var(--card); }
+    table.compare { width: 100%; border-collapse: collapse; font-size: clamp(0.7rem, 1.15vw, 0.85rem); }
+    table.compare th, table.compare td {
+      padding: 0.55rem 0.65rem; border-bottom: 1px solid var(--line); text-align: center; vertical-align: middle;
+    }
+    table.compare th:first-child, table.compare td:first-child { text-align: left; font-weight: 600; white-space: nowrap; }
+    table.compare thead th { background: rgba(8, 145, 178, 0.14); font-weight: 700; }
+    table.compare thead th.flow { color: var(--accent); background: rgba(34, 211, 238, 0.16); }
+    table.compare tbody tr:last-child td { border-bottom: 0; }
+    table.compare .yes { color: var(--good); font-weight: 700; }
+    table.compare .no { color: var(--bad); font-weight: 600; }
+    table.compare .mid { color: var(--warn); font-weight: 600; }
+    .bars { display: grid; gap: 0.65rem; margin-top: 0.75rem; }
+    .bar-row label { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.78rem; margin-bottom: 0.28rem; color: #cbd5e1; }
+    .bar-row label .muted { color: #64748b; font-size: 0.68rem; }
+    .track { height: 0.48rem; background: #1e293b; border-radius: 999px; overflow: hidden; }
+    .track > i { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--accent-dim), var(--accent)); font-style: normal; }
+    .track.other > i { background: linear-gradient(90deg, #475569, #64748b); }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.9rem; }
+    .pill {
+      border: 1px solid var(--line); background: rgba(15, 23, 42, 0.85); color: var(--muted);
+      font-size: 0.72rem; padding: 0.35rem 0.65rem; border-radius: 999px;
+      display: inline-flex; align-items: center; gap: 0.35rem;
+    }
+    .pill i { color: var(--accent); }
+    .pill strong { color: var(--accent); font-weight: 700; }
+    .cta-box {
+      margin-top: 1rem; padding: 0.95rem 1.1rem; border-radius: 0.9rem;
+      border: 1px solid rgba(34, 211, 238, 0.35); background: rgba(34, 211, 238, 0.08);
+      display: flex; flex-wrap: wrap; gap: 0.85rem; align-items: center; justify-content: space-between;
+    }
+    .cta-box a { color: var(--accent); font-weight: 700; text-decoration: none; }
+    .section-label {
+      font-size: 0.72rem; color: var(--accent); font-weight: 700; margin: 0.85rem 0 0.45rem;
+      display: flex; align-items: center; gap: 0.4rem; text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .footer-hint {
+      position: absolute; bottom: 0.55rem; right: 0.9rem; color: #475569; font-size: 0.65rem;
+    }
+    .note { margin-top: 0.55rem; color: #64748b; font-size: 0.65rem; }
+    .flow {
+      display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; margin: 0.75rem 0 0.25rem;
+      font-size: 0.78rem; color: #cbd5e1;
+    }
+    .flow .step {
+      background: var(--card); border: 1px solid var(--line); border-radius: 999px;
+      padding: 0.35rem 0.7rem; display: inline-flex; align-items: center; gap: 0.35rem;
+    }
+    .flow .step i { color: var(--accent); }
+    .flow .arrow { color: #475569; }
+    @media print {
+      .chrome, .progress, .footer-hint { display: none !important; }
+      .deck, .stage { height: auto; }
+      .slide {
+        position: relative; display: flex !important; page-break-after: always;
+        min-height: 100vh; background: #fff; color: #0f172a; animation: none;
+      }
+      .title, .card h3 { color: #0f172a; }
+      .subtitle, .card p, .tagline, .kpi .lbl { color: #475569; }
+      .card, .kpi, .compare-wrap, .chip, .pill { background: #f8fafc; border-color: #e2e8f0; }
+      .icon { background: #ecfeff; border-color: #a5f3fc; color: #0e7490; }
+      .kpi .val, .eyebrow, .section-label { color: #0e7490; }
+    }
+  </style>
+</head>
+<body>
+  <div class="deck">
+    <div class="chrome">
+      <div class="brand">
+        <div class="brand-mark"><i class="fa-solid fa-microphone-lines"></i></div>
+        Flow<span>qil</span>
+      </div>
+      <div class="meta" id="counter">1 / 12</div>
+      <div class="nav">
+        <button type="button" id="prev"><i class="fa-solid fa-arrow-left"></i> Prev</button>
+        <button type="button" id="next">Next <i class="fa-solid fa-arrow-right"></i></button>
+        <button type="button" id="fs"><i class="fa-solid fa-expand"></i></button>
+      </div>
+    </div>
+    <div class="progress"><span id="bar"></span></div>
+    <div class="stage">
+
+      <!-- 1 -->
+      <section class="slide active cover" data-title="Cover">
+        <p class="eyebrow"><i class="fa-solid fa-map-location-dot"></i> Product pitch · Qatar / GCC · 12 slides</p>
+        <div class="grid-2">
+          <div>
+            <p class="brand-huge">Flow<span>qil</span></p>
+            <h1 class="title">The AI voice business OS</h1>
+            <p class="subtitle">For agencies, brokers &amp; SMEs — CRM, billing, modules, and Nova in one workspace</p>
+            <p class="tagline">The brain that flows with your voice. Run clients, quotes, invoices, real estate, and POS by speaking.</p>
+            <div class="pill-row">
+              <span class="pill"><i class="fa-solid fa-coins"></i> <strong>QAR</strong>-ready</span>
+              <span class="pill"><i class="fa-solid fa-language"></i> Multi-locale</span>
+              <span class="pill"><i class="fa-solid fa-robot"></i> <strong>Nova</strong></span>
+              <span class="pill"><i class="fa-solid fa-building-user"></i> Multi-tenant</span>
+              <span class="pill"><i class="fa-solid fa-shield-halved"></i> 2FA</span>
+            </div>
+          </div>
+          <div class="cards">
+            <div class="card"><div class="icon"><i class="fa-solid fa-microphone"></i></div><div><h3>Nova by voice</h3><span class="sub">Voice navigation · drafts · intents</span><p>Open clients and invoices hands-free</p></div></div>
+            <div class="card"><div class="icon"><i class="fa-solid fa-diagram-project"></i></div><div><h3>Lead to payment</h3><span class="sub">Lead → quote → invoice → portal</span><p>Clients · projects · contracts · payments</p></div></div>
+            <div class="card"><div class="icon"><i class="fa-solid fa-puzzle-piece"></i></div><div><h3>Qatar modules ready</h3><span class="sub">Real estate · POS · Shopify/Woo · Odoo</span><p>GCC marketplace + integrations</p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 -->
+      <section class="slide" data-title="Problem">
+        <p class="eyebrow"><i class="fa-solid fa-triangle-exclamation"></i> Slide 2 · The problem</p>
+        <div class="title-block">
+          <h2 class="title">Too many tools — no single source of truth</h2>
+          <p class="subtitle">SMEs lose time clicking across apps instead of closing deals</p>
+        </div>
+        <div class="cards g2">
+          <div class="card"><div class="icon"><i class="fa-brands fa-whatsapp"></i></div><div><h3>WhatsApp + Excel + email + half a CRM</h3><span class="sub">4–5 disconnected apps</span><p>Follow-ups get lost; teams redo the same work</p></div></div>
+          <div class="card"><div class="icon"><i class="fa-solid fa-file-invoice"></i></div><div><h3>Slow quotes and invoices</h3><span class="sub">Manual billing &amp; payment chasing</span><p>No unified client portal or e-sign flow</p></div></div>
+          <div class="card"><div class="icon"><i class="fa-solid fa-globe"></i></div><div><h3>Western CRMs poorly fit for GCC</h3><span class="sub">Weak QAR / real-estate / retail fit</span><p>Shallow localization without local modules</p></div></div>
+          <div class="card"><div class="icon"><i class="fa-solid fa-comments"></i></div><div><h3>Chatbots ≠ running the business</h3><span class="sub">Chat alone doesn’t ship invoices</span><p>You need an operator inside the workspace</p></div></div>
+        </div>
+      </section>
+
+      <!-- 3 -->
+      <section class="slide" data-title="Solution">
+        <p class="eyebrow"><i class="fa-solid fa-lightbulb"></i> Slide 3 · The solution</p>
+        <div class="title-block">
+          <h2 class="title">One secure multi-tenant workspace</h2>
+          <p class="subtitle">Voice-operated revenue stack — from first lead to paid invoice</p>
+        </div>
+        <div class="flow">
+          <span class="step"><i class="fa-solid fa-user-plus"></i> Lead</span><span class="arrow">→</span>
+          <span class="step"><i class="fa-solid fa-users"></i> Client</span><span class="arrow">→</span>
+          <span class="step"><i class="fa-solid fa-folder"></i> Project</span><span class="arrow">→</span>
+          <span class="step"><i class="fa-solid fa-file-signature"></i> Quote</span><span class="arrow">→</span>
+          <span class="step"><i class="fa-solid fa-receipt"></i> Invoice</span><span class="arrow">→</span>
+          <span class="step"><i class="fa-solid fa-credit-card"></i> Pay</span><span class="arrow">→</span>
+          <span class="step"><i class="fa-solid fa-door-open"></i> Portal</span>
+        </div>
+        <div class="kpi-row k4" style="margin:0.85rem 0;">
+          <div class="kpi"><div class="val">SaaS</div><div class="lbl">Company workspaces<br>Multi-tenant</div></div>
+          <div class="kpi"><div class="val">Nova</div><div class="lbl">AI voice operator<br>Chat + Live</div></div>
+          <div class="kpi"><div class="val">Modules</div><div class="lbl">Marketplace packs<br>RE · POS · Sync</div></div>
+          <div class="kpi"><div class="val">GCC</div><div class="lbl">QAR · AED · SAR<br>Localized</div></div>
+        </div>
+        <div class="chip-cloud">
+          <span class="chip"><i class="fa-solid fa-check"></i> Roles &amp; permissions</span>
+          <span class="chip"><i class="fa-solid fa-check"></i> Starter / Pro / Enterprise</span>
+          <span class="chip"><i class="fa-solid fa-check"></i> Free trial</span>
+          <span class="chip"><i class="fa-solid fa-check"></i> Stripe · PayPal · Flouci</span>
+          <span class="chip"><i class="fa-solid fa-check"></i> Google / GitHub OAuth</span>
+          <span class="chip"><i class="fa-solid fa-check"></i> Email verify + 2FA</span>
+        </div>
+      </section>
+
+      <!-- 4 -->
+      <section class="slide" data-title="Nova">
+        <p class="eyebrow"><i class="fa-solid fa-robot"></i> Slide 4 · Nova AI</p>
+        <div class="title-block">
+          <h2 class="title">Nova: AI that works inside the product</h2>
+          <p class="subtitle">Not a sideline chatbot — an in-workspace operator</p>
+        </div>
+        <div class="cards g3">
+          <div class="card compact"><div class="icon"><i class="fa-solid fa-ear-listen"></i></div><div><h3>Voice &amp; navigation</h3><span class="sub">Intents · briefing · Gemini Live + TTS</span><p>Gemini / OpenAI / Edge voices</p></div></div>
+          <div class="card compact"><div class="icon"><i class="fa-solid fa-comments"></i></div><div><h3>Chat &amp; writing</h3><span class="sub">Summary · suggest · writing modes</span></div></div>
+          <div class="card compact"><div class="icon"><i class="fa-solid fa-file-invoice-dollar"></i></div><div><h3>Quotes &amp; invoices AI</h3><span class="sub">Line-item suggest · scan · prefill</span></div></div>
+          <div class="card compact"><div class="icon"><i class="fa-solid fa-file-contract"></i></div><div><h3>Contract body generation</h3><span class="sub">AI drafts + PDF output</span></div></div>
+          <div class="card compact"><div class="icon"><i class="fa-solid fa-envelope-open-text"></i></div><div><h3>Email campaign AI</h3><span class="sub">Templates &amp; campaign content</span></div></div>
+          <div class="card compact"><div class="icon"><i class="fa-solid fa-video"></i></div><div><h3>Meeting summaries</h3><span class="sub">Notes · Meet transcript import</span></div></div>
+          <div class="card compact"><div class="icon"><i class="fa-solid fa-chart-pie"></i></div><div><h3>Reports counsel</h3><span class="sub">AI insights + PDF export</span></div></div>
+          <div class="card compact"><div class="icon"><i class="fa-solid fa-diagram-project"></i></div><div><h3>Project workflows</h3><span class="sub">AI-assisted project flows</span></div></div>
+          <div class="card compact"><div class="icon"><i class="fa-solid fa-coins"></i></div><div><h3>Plan-based AI credits</h3><span class="sub">Metered · predictable cost</span></div></div>
+        </div>
+      </section>
+
+      <!-- 5 -->
+      <section class="slide" data-title="CRM">
+        <p class="eyebrow"><i class="fa-solid fa-layer-group"></i> Slide 5 · Revenue core (CRM)</p>
+        <div class="title-block">
+          <h2 class="title">Everything you need to close</h2>
+          <p class="subtitle">Full revenue stack — shipped in production</p>
+        </div>
+        <div class="cards g4">
+          <div class="card compact"><div class="icon"><i class="fa-solid fa-users"></i></div><div><h3>Clients &amp; follow-ups</h3><span class="sub">CRM · meetings · reminders</span></div></div>
+          <div class="card compact"><div class="icon"><i class="fa-solid fa-user-plus"></i></div><div><h3>Prospects + CSV import</h3><span class="sub">Verify · convert → client</span></div></div>
+          <div class="card compact"><div class="icon"><i class="fa-solid fa-inbox"></i></div><div><h3>Inquiries &amp; forms</h3><span class="sub">Builder · embed · convert</span></div></div>
+          <div class="card compact"><div class="icon"><i class="fa-solid fa-folder-open"></i></div><div><h3>Projects &amp; files</h3><span class="sub">Tasks · kanban · gantt · vault</span></div></div>
+          <div class="card compact"><div class="icon"><i class="fa-solid fa-clock"></i></div><div><h3>Time &amp; installments</h3><span class="sub">Tracking · payment schedules</span></div></div>
+          <div class="card compact"><div class="icon"><i class="fa-solid fa-file-signature"></i></div><div><h3>Quotes PDF &amp; negotiate</h3><span class="sub">Send · accept · → invoice</span></div></div>
+          <div class="card compact"><div class="icon"><i class="fa-solid fa-receipt"></i></div><div><h3>Invoices &amp; payments</h3><span class="sub">Stripe · PayPal · Flouci</span></div></div>
+          <div class="card compact"><div class="icon"><i class="fa-solid fa-scroll"></i></div><div><h3>Client contracts + e-sign</h3><span class="sub">Templates · portal signing</span></div></div>
+          <div class="card compact"><div class="icon"><i class="fa-solid fa-handshake"></i></div><div><h3>Providers &amp; commissions</h3><span class="sub">Remittance · partner portal</span></div></div>
+          <div class="card compact"><div class="icon"><i class="fa-solid fa-calendar-days"></i></div><div><h3>Calendar + Google</h3><span class="sub">Events · Zoom · sync</span></div></div>
+          <div class="card compact"><div class="icon"><i class="fa-solid fa-chart-line"></i></div><div><h3>Dashboard &amp; analytics</h3><span class="sub">KPIs · reports · export</span></div></div>
+          <div class="card compact"><div class="icon"><i class="fa-solid fa-door-open"></i></div><div><h3>Client portal</h3><span class="sub">Pay · sign · chat · tickets</span></div></div>
+        </div>
+      </section>
+
+      <!-- 6 -->
+      <section class="slide" data-title="Platform">
+        <p class="eyebrow"><i class="fa-solid fa-cubes"></i> Slide 6 · Platform depth &amp; integrations</p>
+        <div class="title-block">
+          <h2 class="title">More than a CRM — a full work OS</h2>
+          <p class="subtitle">Collaboration, HR, marketing, sync &amp; API</p>
+        </div>
+        <p class="section-label"><i class="fa-solid fa-envelope"></i> Marketing &amp; collaboration</p>
+        <div class="cards g3">
+          <div class="card compact"><div class="icon"><i class="fa-solid fa-paper-plane"></i></div><div><h3>Email marketing</h3><span class="sub">Campaigns · audiences · sequences · AI</span></div></div>
+          <div class="card compact"><div class="icon"><i class="fa-solid fa-comments"></i></div><div><h3>In-app chat</h3><span class="sub">Client/provider threads · widget</span></div></div>
+          <div class="card compact"><div class="icon"><i class="fa-solid fa-ticket"></i></div><div><h3>Support tickets</h3><span class="sub">Create · list · status</span></div></div>
+        </div>
+        <p class="section-label"><i class="fa-solid fa-people-group"></i> HR &amp; workspace</p>
+        <div class="cards g3">
+          <div class="card compact"><div class="icon"><i class="fa-solid fa-id-badge"></i></div><div><h3>HR</h3><span class="sub">Employees · leave · payroll</span></div></div>
+          <div class="card compact"><div class="icon"><i class="fa-solid fa-palette"></i></div><div><h3>Workspace identity</h3><span class="sub">Branding · theme · nav · SMTP</span></div></div>
+          <div class="card compact"><div class="icon"><i class="fa-solid fa-bell"></i></div><div><h3>Notifications</h3><span class="sub">Activity feed · alerts</span></div></div>
+        </div>
+        <p class="section-label"><i class="fa-solid fa-plug"></i> Integrations &amp; API</p>
+        <div class="chip-cloud">
+          <span class="chip"><i class="fa-brands fa-shopify"></i> Shopify sync</span>
+          <span class="chip"><i class="fa-brands fa-wordpress"></i> WooCommerce</span>
+          <span class="chip"><i class="fa-solid fa-database"></i> Odoo sync</span>
+          <span class="chip"><i class="fa-brands fa-google"></i> Google Calendar</span>
+          <span class="chip"><i class="fa-solid fa-code"></i> REST API</span>
+          <span class="chip"><i class="fa-solid fa-puzzle-piece"></i> Zip modules marketplace</span>
+          <span class="chip"><i class="fa-solid fa-chart-simple"></i> Embed widgets</span>
+          <span class="chip"><i class="fa-solid fa-link"></i> Shared vault links</span>
+        </div>
+      </section>
+
+      <!-- 7 -->
+      <section class="slide" data-title="Qatar">
+        <p class="eyebrow"><i class="fa-solid fa-flag"></i> Slide 7 · Qatar &amp; verticals</p>
+        <div class="title-block">
+          <h2 class="title">GCC-ready + vertical modules</h2>
+          <p class="subtitle">QAR · Real estate · Commerce · POS · Delivery</p>
+        </div>
+        <div class="kpi-row k4" style="margin-bottom:0.75rem;">
+          <div class="kpi"><div class="val">QAR</div><div class="lbl">Default for Qatar<br>+ AED · SAR</div></div>
+          <div class="kpi"><div class="val">Locales</div><div class="lbl">EN + regional<br>Auto by country</div></div>
+          <div class="kpi"><div class="val">GCC</div><div class="lbl">Regional module<br>marketplace</div></div>
+          <div class="kpi"><div class="val">Flouci</div><div class="lbl">Regional payments<br>+ Stripe/PayPal</div></div>
+        </div>
+        <div class="cards g2">
+          <div class="card"><div class="icon"><i class="fa-solid fa-house-chimney"></i></div><div><h3>Real estate</h3><span class="sub">Offers · demands · RE contracts · images</span><p>Broker workflows for Doha / Lusail / The Pearl</p></div></div>
+          <div class="card"><div class="icon"><i class="fa-solid fa-cart-shopping"></i></div><div><h3>Commerce + stock</h3><span class="sub">Products · variants · stock movements</span><p>Orders · invoice from order · deliveries</p></div></div>
+          <div class="card"><div class="icon"><i class="fa-solid fa-cash-register"></i></div><div><h3>POS</h3><span class="sub">Open session · sell · close</span><p>Retail, F&amp;B, cloud kitchens</p></div></div>
+          <div class="card"><div class="icon"><i class="fa-solid fa-truck-fast"></i></div><div><h3>Delivery pipeline</h3><span class="sub">Statuses · fulfillment tracking</span><p>Path for Doha Q-commerce</p></div></div>
+        </div>
+      </section>
+
+      <!-- 8 -->
+      <section class="slide" data-title="Market">
+        <p class="eyebrow"><i class="fa-solid fa-bullseye"></i> Slide 8 · Who it’s for</p>
+        <div class="title-block">
+          <h2 class="title">Agencies · brokers · retail · services</h2>
+          <p class="subtitle">Beachhead: bilingual SMEs 10–50 people in Doha</p>
+        </div>
+        <div class="cards g2">
+          <div class="card"><div class="icon"><i class="fa-solid fa-pen-nib"></i></div><div><h3>Digital agencies &amp; consultancies</h3><span class="sub">Projects · quotes · retainers · portal</span><p>ClicFlow’s original core</p></div></div>
+          <div class="card"><div class="icon"><i class="fa-solid fa-city"></i></div><div><h3>Real-estate offices &amp; brokers</h3><span class="sub">Listings · demands · contracts</span><p>Commissions &amp; providers</p></div></div>
+          <div class="card"><div class="icon"><i class="fa-solid fa-bag-shopping"></i></div><div><h3>Retail &amp; Q-commerce</h3><span class="sub">POS · catalog · delivery · sync</span><p>CRM + billing alongside light commerce</p></div></div>
+          <div class="card"><div class="icon"><i class="fa-solid fa-briefcase"></i></div><div><h3>B2B services &amp; partners</h3><span class="sub">Provider portal · partnerships · e-sign</span><p>Public partner signup links</p></div></div>
+        </div>
+        <div class="chip-cloud">
+          <span class="chip"><i class="fa-solid fa-language"></i> Locales: EN FR ES AR HI ID</span>
+          <span class="chip"><i class="fa-solid fa-building"></i> Multi-company / tenant</span>
+          <span class="chip"><i class="fa-solid fa-mobile-screen"></i> Client + provider portals</span>
+        </div>
+      </section>
+
+      <!-- 9 -->
+      <section class="slide" data-title="Model">
+        <p class="eyebrow"><i class="fa-solid fa-chart-pie"></i> Slide 9 · Business model</p>
+        <div class="title-block">
+          <h2 class="title">Subscription + modules + AI credits</h2>
+          <p class="subtitle">Land with plans — expand with marketplace &amp; usage</p>
+        </div>
+        <div class="cards g3" style="margin-bottom:0.75rem;">
+          <div class="card"><div class="icon"><i class="fa-solid fa-seedling"></i></div><div><h3>Starter</h3><span class="sub">Small teams</span><p>Core CRM + limited quotas</p></div></div>
+          <div class="card"><div class="icon"><i class="fa-solid fa-bolt"></i></div><div><h3>Pro</h3><span class="sub">Growing agencies</span><p>AI · marketing · calendar · more features</p></div></div>
+          <div class="card"><div class="icon"><i class="fa-solid fa-building"></i></div><div><h3>Enterprise</h3><span class="sub">Custom SLA</span><p>Higher limits + dedicated success</p></div></div>
+        </div>
+        <div class="cards g2">
+          <div class="card"><div class="icon"><i class="fa-solid fa-store"></i></div><div><h3>Module marketplace</h3><span class="sub">E-com/POS · Real estate · Shopify/Woo</span><p>Cart checkout · multi-currency (QAR in GCC)</p></div></div>
+          <div class="card"><div class="icon"><i class="fa-solid fa-arrow-trend-up"></i></div><div><h3>Expansion revenue</h3><span class="sub">AI credits · email volume · add-ons</span><p>Trial → checkout → Stripe billing portal</p></div></div>
+        </div>
+      </section>
+
+      <!-- 10 -->
+      <section class="slide" data-title="Comparison">
+        <p class="eyebrow"><i class="fa-solid fa-scale-balanced"></i> Slide 10 · Why ClicFlow (KPIs)</p>
+        <div class="title-block">
+          <h2 class="title">Real product capabilities vs alternatives</h2>
+          <p class="subtitle">ClicFlow vs classic CRM · heavy ERP · chatbot-only</p>
+        </div>
+        <div class="kpi-row k5" style="margin-bottom:0.7rem;">
+          <div class="kpi"><div class="val">~60%</div><div class="lbl">Less time on tasks*<br>vs click CRM</div></div>
+          <div class="kpi"><div class="val">1↔5</div><div class="lbl">One platform<br>vs tool sprawl</div></div>
+          <div class="kpi"><div class="val">2×</div><div class="lbl">Faster quote/invoice*<br>+ AI assist</div></div>
+          <div class="kpi"><div class="val">6</div><div class="lbl">UI locales<br>incl. AR RTL</div></div>
+          <div class="kpi"><div class="val">30+</div><div class="lbl">Shipped<br>capabilities</div></div>
+        </div>
+        <div class="compare-wrap">
+          <table class="compare">
+            <thead>
+              <tr>
+                <th>Capability</th>
+                <th class="flow">ClicFlow</th>
+                <th>CRM</th>
+                <th>ERP</th>
+                <th>Chatbot</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Nova voice inside the app</td><td class="yes"><i class="fa-solid fa-check"></i></td><td class="no"><i class="fa-solid fa-xmark"></i></td><td class="no"><i class="fa-solid fa-xmark"></i></td><td class="mid">Chat only</td></tr>
+              <tr><td>Quote → invoice → portal → e-sign</td><td class="yes"><i class="fa-solid fa-check"></i></td><td class="mid">Partial</td><td class="yes"><i class="fa-solid fa-check"></i></td><td class="no"><i class="fa-solid fa-xmark"></i></td></tr>
+              <tr><td>Real estate + POS + stock</td><td class="yes"><i class="fa-solid fa-check"></i></td><td class="no"><i class="fa-solid fa-xmark"></i></td><td class="mid">Heavy</td><td class="no"><i class="fa-solid fa-xmark"></i></td></tr>
+              <tr><td>QAR + GCC marketplace</td><td class="yes"><i class="fa-solid fa-check"></i></td><td class="mid">Bolt-on</td><td class="mid">Costly</td><td class="mid">—</td></tr>
+              <tr><td>Shopify / Woo / Odoo</td><td class="yes"><i class="fa-solid fa-check"></i></td><td class="mid">Add-ons</td><td class="yes"><i class="fa-solid fa-check"></i></td><td class="no"><i class="fa-solid fa-xmark"></i></td></tr>
+              <tr><td>Email + calendar + HR + tickets</td><td class="yes"><i class="fa-solid fa-check"></i></td><td class="mid">Limited</td><td class="yes"><i class="fa-solid fa-check"></i></td><td class="no"><i class="fa-solid fa-xmark"></i></td></tr>
+              <tr><td>SME time-to-value</td><td class="yes">Days</td><td class="mid">Weeks</td><td class="no">Months</td><td class="yes">Days</td></tr>
+              <tr><td>Total cost of ownership</td><td class="yes">Low–mid</td><td class="mid">Medium</td><td class="no">High</td><td class="yes">Low†</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="bars">
+          <div class="bar-row">
+            <label><span>Business ops coverage</span><span class="muted">ClicFlow 92% · CRM ~55% · Chatbot ~15%</span></label>
+            <div class="track"><i style="width:92%"></i></div>
+            <div class="track other" style="margin-top:0.2rem"><i style="width:55%"></i></div>
+          </div>
+        </div>
+        <p class="note">* Indicative pitch KPIs — replace with pilot measurements. † Chatbot alone does not replace an ops stack.</p>
+      </section>
+
+      <!-- 11 -->
+      <section class="slide" data-title="GTM">
+        <p class="eyebrow"><i class="fa-solid fa-route"></i> Slide 11 · Doha go-to-market</p>
+        <div class="title-block">
+          <h2 class="title">90-day proof — then expand GCC</h2>
+          <p class="subtitle">Design partners → measurable proof → UAE / KSA</p>
+        </div>
+        <div class="cards g2">
+          <div class="card"><div class="icon"><i class="fa-solid fa-flask"></i></div><div><h3>Proof phase</h3><span class="sub">5–10 agencies + 3–5 brokerages</span><p>Live Nova · QAR invoice · RE or POS module</p></div></div>
+          <div class="card"><div class="icon"><i class="fa-solid fa-handshake"></i></div><div><h3>Partnerships</h3><span class="sub">Chambers · incubators · integrators</span><p>Co-selling and module roadmap input</p></div></div>
+          <div class="card"><div class="icon"><i class="fa-brands fa-linkedin"></i></div><div><h3>Channels</h3><span class="sub">LinkedIn · WhatsApp demos</span><p>Marketing site + this pitch deck</p></div></div>
+          <div class="card"><div class="icon"><i class="fa-solid fa-earth-asia"></i></div><div><h3>Expansion</h3><span class="sub">Same GCC marketplace engine</span><p>UAE and KSA on the same stack</p></div></div>
+        </div>
+      </section>
+
+      <!-- 12 -->
+      <section class="slide" data-title="Ask">
+        <p class="eyebrow"><i class="fa-solid fa-hand-holding-hand"></i> Slide 12 · Next step</p>
+        <div class="title-block">
+          <h2 class="title">Live demo · partnership · pilot workspace</h2>
+          <p class="subtitle">See Nova, QAR billing, and RE/POS modules in one session</p>
+        </div>
+        <div class="cards g2">
+          <div class="card"><div class="icon"><i class="fa-solid fa-desktop"></i></div><div><h3>What you’ll see</h3><span class="sub">Live product walkthrough</span>
+            <p>Nova voice · client→quote→invoice · portal &amp; e-sign · real estate or POS · calendar &amp; marketing</p>
+          </div></div>
+          <div class="card"><div class="icon"><i class="fa-solid fa-gift"></i></div><div><h3>What partners get</h3><span class="sub">Pilot workspace · co-branded onboarding</span>
+            <p>Input on Qatar module roadmap · local launch support</p>
+          </div></div>
+        </div>
+        <div class="cta-box">
+          <div>
+            <strong style="font-size:1.05rem;">Ready for Doha</strong>
+            <div style="color:var(--muted);font-size:0.8rem;margin-top:0.2rem;">contact@clicflow.fr · clicflow.fr</div>
+          </div>
+          <a href="mailto:contact@clicflow.fr"><i class="fa-solid fa-paper-plane"></i> contact@clicflow.fr</a>
+        </div>
+        <div class="chip-cloud" style="margin-top:0.85rem;">
+          <span class="chip"><i class="fa-solid fa-check"></i> Full CRM</span>
+          <span class="chip"><i class="fa-solid fa-check"></i> Nova AI</span>
+          <span class="chip"><i class="fa-solid fa-check"></i> Contracts &amp; e-sign</span>
+          <span class="chip"><i class="fa-solid fa-check"></i> Real estate</span>
+          <span class="chip"><i class="fa-solid fa-check"></i> POS &amp; commerce</span>
+          <span class="chip"><i class="fa-solid fa-check"></i> Odoo/Shopify/Woo</span>
+          <span class="chip"><i class="fa-solid fa-check"></i> Client portal</span>
+          <span class="chip"><i class="fa-solid fa-check"></i> HR · Chat · Tickets</span>
+        </div>
+      </section>
+
+      <p class="footer-hint">← → / Space · F fullscreen · P print · /assets/pitch-deck/</p>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+      var i = 0;
+      var counter = document.getElementById('counter');
+      var bar = document.getElementById('bar');
+      var prev = document.getElementById('prev');
+      var next = document.getElementById('next');
+      function show(n) {
+        i = Math.max(0, Math.min(slides.length - 1, n));
+        slides.forEach(function (s, idx) { s.classList.toggle('active', idx === i); });
+        counter.textContent = (i + 1) + ' / ' + slides.length;
+        bar.style.width = ((i + 1) / slides.length * 100) + '%';
+        prev.disabled = i === 0;
+        next.disabled = i === slides.length - 1;
+        document.title = 'ClicFlow — ' + (slides[i].getAttribute('data-title') || 'Pitch') + ' (' + (i + 1) + '/12)';
+      }
+      prev.addEventListener('click', function () { show(i - 1); });
+      next.addEventListener('click', function () { show(i + 1); });
+      document.getElementById('fs').addEventListener('click', function () {
+        var el = document.documentElement;
+        if (!document.fullscreenElement) el.requestFullscreen && el.requestFullscreen();
+        else document.exitFullscreen && document.exitFullscreen();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); show(i + 1); }
+        else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(i - 1); }
+        else if (e.key === 'Home') show(0);
+        else if (e.key === 'End') show(slides.length - 1);
+        else if (e.key === 'f' || e.key === 'F') document.getElementById('fs').click();
+        else if (e.key === 'p' || e.key === 'P') window.print();
+      });
+      show(0);
+    })();
+  </script>
+</body>
+</html>

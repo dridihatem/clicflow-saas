@@ -1,0 +1,9 @@
+{
+  "Odoo sync companion": "Pendamping sinkronisasi Odoo",
+  "Connect your Odoo database (JSON-RPC) to keep clients, quotes, invoices, and projects in sync.": "Hubungkan database Odoo Anda (JSON-RPC) agar klien, penawaran, faktur, dan proyek tetap sinkron.",
+  "Open Odoo settings": "Buka pengaturan Odoo",
+  "Activate the free Odoo sync module to unlock Settings → Odoo.": "Aktifkan modul sinkronisasi Odoo gratis untuk membuka Pengaturan → Odoo.",
+  "Activate Odoo sync for free from the modules catalog or Settings → Modules": "Aktifkan sinkronisasi Odoo secara gratis dari katalog modul atau Pengaturan → Modul",
+  "Open Settings → Odoo and enter your URL, database, user, and API key": "Buka Pengaturan → Odoo lalu masukkan URL, database, pengguna, dan kunci API",
+  "Test the connection, then sync clients, quotes, invoices, and projects": "Uji koneksi, lalu sinkronkan klien, penawaran, faktur, dan proyek"
+}

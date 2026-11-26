@@ -1,0 +1,468 @@
+/* ClicFlow professional shell — company, team, client, provider. */
+
+:root {
+    --cf-orange: #EA580C;
+    --cf-orange-soft: color-mix(in srgb, #EA580C 12%, white);
+}
+
+.cf-page-wrap {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 96rem;
+    padding-inline: 1rem;
+}
+@media (min-width: 640px) { .cf-page-wrap { padding-inline: 1.5rem; } }
+@media (min-width: 1024px) { .cf-page-wrap { padding-inline: 2rem; } }
+
+.cf-page-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 0.75rem; }
+.cf-eyebrow { margin: 0; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cf-orange); }
+.cf-page-title { margin: 0.15rem 0 0; font-size: 1.35rem; font-weight: 650; letter-spacing: -0.02em; color: #0f172a; }
+.dark .cf-page-title { color: #fff; }
+.cf-page-sub { margin: 0.25rem 0 0; font-size: 0.875rem; color: #64748b; }
+
+.cf-btn-primary, .cf-btn-secondary {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    border-radius: 0.7rem; padding: 0.5rem 0.9rem;
+    font-size: 0.8125rem; font-weight: 600; text-decoration: none;
+    transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+.cf-btn-primary { background: var(--cf-orange); color: #fff; border: 0; }
+.cf-btn-primary:hover { background: #c2410c; }
+.cf-btn-secondary { background: #fff; color: #334155; border: 1px solid #e2e8f0; }
+.dark .cf-btn-secondary { background: #0f172a; color: #e2e8f0; border-color: #334155; }
+.cf-btn-primary:hover, .cf-btn-secondary:hover { transform: translateY(-1px); }
+
+.cf-card {
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px rgb(15 23 42 / 0.05), 0 8px 24px -16px rgb(15 23 42 / 0.18);
+    transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.cf-card:hover { transform: translateY(-2px); box-shadow: 0 8px 28px -12px rgb(15 23 42 / 0.22); }
+
+.cf-flash-ok {
+    border-radius: 0.75rem; border: 1px solid #a7f3d0; background: #ecfdf5;
+    padding: 0.75rem 1rem; font-size: 0.875rem; color: #065f46;
+}
+
+.cf-empty { text-align: center; padding: 3.5rem 1.5rem; color: #64748b; font-size: 0.875rem; }
+
+.cf-enter {
+    animation: cf-fade-up 480ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: var(--cf-delay, 0ms);
+}
+
+@keyframes cf-fade-up {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.cf-pulse-new {
+    position: relative;
+}
+.cf-pulse-new::after {
+    content: "";
+    position: absolute; top: 0.35rem; inset-inline-end: 0.35rem;
+    width: 0.45rem; height: 0.45rem; border-radius: 999px;
+    background: var(--cf-orange);
+    box-shadow: 0 0 0 0 rgb(234 88 12 / 0.7);
+    animation: cf-badge-pulse 1.8s ease-out infinite;
+}
+@keyframes cf-badge-pulse {
+    0% { box-shadow: 0 0 0 0 rgb(234 88 12 / 0.55); }
+    70% { box-shadow: 0 0 0 0.45rem rgb(234 88 12 / 0); }
+    100% { box-shadow: 0 0 0 0 rgb(234 88 12 / 0); }
+}
+
+/* Sidebar collapse + orange active pill */
+.flow-sidebar-aside {
+    transition: width 220ms ease, min-width 220ms ease, padding 220ms ease;
+    width: 16rem;
+}
+.cf-shell-collapsed .flow-sidebar-aside {
+    width: 4.75rem;
+    min-width: 4.75rem;
+}
+.cf-shell-collapsed .flow-sidebar-aside .cf-nav-label,
+.cf-shell-collapsed .flow-sidebar-aside .flow-nav-flyout-trigger span:not(.cf-icon),
+.cf-shell-collapsed .flow-sidebar-aside .flow-nav-flyout-trigger .fa-chevron-right,
+.cf-shell-collapsed .flow-sidebar-aside p[class*="uppercase"] {
+    display: none;
+}
+.cf-shell-collapsed .flow-sidebar-aside a span:not(.cf-icon),
+.cf-shell-collapsed .flow-sidebar-aside .cf-wordmark {
+    display: none;
+}
+
+.flow-sidebar-aside .flow-nav-item-active {
+    background: color-mix(in srgb, var(--cf-orange) 12%, white) !important;
+    color: #c2410c !important;
+    box-shadow: inset 3px 0 0 var(--cf-orange);
+}
+[dir="rtl"] .flow-sidebar-aside .flow-nav-item-active {
+    box-shadow: inset -3px 0 0 var(--cf-orange);
+}
+.dark .flow-sidebar-aside .flow-nav-item-active {
+    background: color-mix(in srgb, var(--cf-orange) 22%, #0f172a) !important;
+    color: #fdba74 !important;
+}
+.flow-sidebar-aside .flow-nav-item-inactive:hover {
+    background: color-mix(in srgb, var(--cf-orange) 7%, transparent);
+}
+
+.cf-collapse-btn {
+    display: none;
+}
+@media (min-width: 1024px) {
+    .cf-collapse-btn { display: inline-flex; }
+}
+
+/* Sticky table headers + hover */
+.flow-data-table thead,
+table thead.cf-sticky,
+.flow-panel table thead {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+.flow-data-table tbody tr,
+.flow-panel table tbody tr {
+    transition: background 140ms ease;
+}
+.flow-data-table tbody tr:hover,
+.flow-panel table tbody tr:hover {
+    background: color-mix(in srgb, var(--cf-orange) 6%, transparent);
+}
+
+.cf-topbar-search input {
+    border-radius: 0.75rem;
+    border-color: #e2e8f0;
+    font-size: 0.875rem;
+    min-width: 12rem;
+}
+.cf-topbar-search input:focus {
+    border-color: var(--cf-orange);
+    box-shadow: 0 0 0 3px rgb(234 88 12 / 0.2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cf-enter, .portal-enter, .flow-dashboard-enter, .cf-card, .cf-btn-primary, .cf-btn-secondary,
+    .cf-pulse-new::after, .flow-sidebar-aside {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+    }
+}
+
+/* Professional navy sidebar — company, team, client, provider */
+.flow-sidebar-aside {
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%) !important;
+    border-inline-end: none !important;
+    color: #e2e8f0 !important;
+    box-shadow: 8px 0 32px -16px rgba(15, 23, 42, 0.45) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+.flow-sidebar-aside-header {
+    border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+.flow-sidebar-aside .flow-nav-section-label,
+.flow-sidebar-aside p[class*="uppercase"],
+.flow-sidebar-aside .text-slate-400,
+.flow-sidebar-aside .text-slate-500 {
+    color: #94a3b8 !important;
+}
+.flow-sidebar-aside .flow-nav-item-active,
+.flow-sidebar-aside .flow-nav-link-active,
+.flow-sidebar-aside a.flow-nav-item-active,
+.flow-sidebar-aside .flow-nav-flyout-link-active {
+    background: #EA580C !important;
+    background-image: none !important;
+    color: #fff !important;
+    box-shadow: 0 8px 18px rgba(234, 88, 12, 0.4) !important;
+    border-radius: 0.7rem;
+}
+.flow-sidebar-aside .flow-nav-item-inactive,
+.flow-sidebar-aside .flow-nav-link-inactive,
+.flow-sidebar-aside .flow-nav-flyout-trigger {
+    color: #cbd5e1 !important;
+}
+.flow-sidebar-aside .flow-nav-item-inactive:hover,
+.flow-sidebar-aside .flow-nav-link-inactive:hover,
+.flow-sidebar-aside .flow-nav-flyout-trigger:hover {
+    background: rgba(255, 255, 255, 0.07) !important;
+    color: #fff !important;
+}
+.flow-sidebar-aside .cf-collapse-btn {
+    color: #94a3b8 !important;
+}
+.flow-sidebar-aside .cf-collapse-btn:hover {
+    background: rgba(234, 88, 12, 0.18) !important;
+    color: #fdba74 !important;
+}
+.flow-chrome-topbar {
+    background: #fff !important;
+    border-bottom-color: #e2e8f0 !important;
+}
+.flow-workspace-main {
+    background: #f8fafc;
+}
+
+/* Dashboard — clearly new look */
+.flow-dashboard-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.35rem 1.5rem;
+    border-radius: 1.15rem;
+    border: 1px solid #fed7aa;
+    background: linear-gradient(135deg, #fff7ed 0%, #fff 58%);
+    box-shadow: 0 8px 28px -18px rgba(234, 88, 12, 0.35);
+}
+.flow-dashboard-header h1,
+.flow-dashboard-header .cf-page-title {
+    font-size: 1.75rem !important;
+    letter-spacing: -0.03em;
+}
+.flow-dashboard-chip {
+    border-radius: 999px !important;
+    border: 1px solid #e2e8f0 !important;
+    background: #fff !important;
+    color: #334155 !important;
+    font-weight: 600;
+    padding: 0.4rem 0.85rem !important;
+    transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+.flow-dashboard-chip:hover {
+    border-color: #fdba74 !important;
+    background: #fff7ed !important;
+    color: #c2410c !important;
+    transform: translateY(-1px);
+}
+.flow-dashboard-chip--accent {
+    background: #EA580C !important;
+    border-color: #EA580C !important;
+    color: #fff !important;
+    box-shadow: 0 8px 16px -8px rgba(234, 88, 12, 0.7);
+}
+.flow-dashboard-chip--accent:hover {
+    background: #c2410c !important;
+    border-color: #c2410c !important;
+    color: #fff !important;
+}
+.flow-dashboard-panel,
+.flow-panel {
+    border-radius: 1rem !important;
+    border-color: #e2e8f0 !important;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 10px 28px -18px rgba(15, 23, 42, 0.18) !important;
+}
+.flow-dashboard-panel:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px -16px rgba(234, 88, 12, 0.22) !important;
+}
+.flow-dashboard-section__title {
+    letter-spacing: -0.02em;
+}
+
+/* Topbar + minimal layouts: navy bar, orange active, white content */
+.cf-shell-topbar .flow-glass-nav,
+.cf-shell-minimal .flow-glass-nav {
+    background: linear-gradient(90deg, #0f172a 0%, #1e293b 100%) !important;
+    border-bottom: none !important;
+    box-shadow: 0 8px 28px -16px rgba(15, 23, 42, 0.5) !important;
+    backdrop-filter: none !important;
+}
+.cf-shell-topbar .flow-glass-nav a,
+.cf-shell-minimal .flow-glass-nav a,
+.cf-shell-topbar .flow-glass-nav button,
+.cf-shell-minimal .flow-glass-nav button,
+.cf-shell-topbar .flow-glass-nav span,
+.cf-shell-minimal .flow-glass-nav span {
+    color: #e2e8f0;
+}
+.cf-shell-topbar .flow-glass-nav a[class*="active"],
+.cf-shell-topbar .flow-glass-nav [aria-current="page"],
+.cf-shell-minimal .flow-glass-nav a[class*="active"],
+.cf-shell-minimal .flow-glass-nav [aria-current="page"],
+.cf-shell-topbar .flow-glass-nav .text-orange-600,
+.cf-shell-minimal .flow-glass-nav .text-orange-600 {
+    color: #fff !important;
+}
+.cf-shell-topbar .flow-glass-nav a.inline-flex,
+.cf-shell-topbar .flow-glass-nav .rounded-md,
+.cf-shell-minimal .flow-glass-nav a.inline-flex {
+    border-radius: 0.6rem;
+}
+.cf-shell-topbar .flow-chrome-header,
+.cf-shell-minimal .flow-chrome-header {
+    background: #fff;
+    border-bottom-color: #e2e8f0 !important;
+}
+.cf-shell-topbar main,
+.cf-shell-minimal main,
+.cf-shell-topbar .flow-page-shell,
+.cf-shell-minimal .flow-page-shell {
+    background: #f8fafc;
+}
+
+/* Tables across tenant workspaces */
+.flow-panel table thead th,
+.flow-data-table thead th,
+table thead.cf-sticky th {
+    background: #fff7ed !important;
+    color: #9a3412 !important;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.flow-panel table tbody tr:hover,
+.flow-data-table tbody tr:hover {
+    background: #fff7ed !important;
+}
+
+/* Flyouts on the navy sidebar */
+.flow-sidebar-aside .flow-nav-flyout-panel {
+    background: #1e293b !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    color: #e2e8f0 !important;
+}
+.flow-sidebar-aside .flow-nav-flyout-title,
+.flow-sidebar-aside .flow-nav-flyout-link {
+    color: #e2e8f0 !important;
+}
+.flow-sidebar-aside .flow-nav-flyout-link:hover {
+    background: rgba(234, 88, 12, 0.16) !important;
+    color: #fff !important;
+}
+
+/* Page headers in tenant workspace */
+.flow-chrome-header {
+    background: #fff !important;
+    border-bottom-color: #e2e8f0 !important;
+}
+.flow-chrome-header h2,
+.flow-chrome-header .font-semibold {
+    letter-spacing: -0.02em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cf-kpi, .flow-dashboard-chip, .flow-dashboard-panel, .flow-dashboard-header {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+    }
+}
+
+/* ===== admin sidebar contrast ===== */
+/* Navy sidebar is shared. Admin links used text-slate-800 (for a light bar) and vanished.
+   Force readable light text, light icons, orange active pill — on every tenant sidebar too. */
+.flow-sidebar-aside nav a {
+    color: rgba(226, 232, 240, 0.88) !important;
+}
+.flow-sidebar-aside nav a .cf-icon {
+    color: rgba(226, 232, 240, 0.82) !important;
+}
+.flow-sidebar-aside nav a:hover {
+    background-color: rgba(255, 255, 255, 0.10) !important;
+    color: #fff !important;
+}
+.flow-sidebar-aside nav a:hover .cf-icon {
+    color: #fdba74 !important;
+}
+.flow-sidebar-aside nav a.bg-\[\#EA580C\],
+.flow-sidebar-aside .flow-nav-item-active,
+.flow-sidebar-aside .flow-nav-link-active,
+.flow-sidebar-aside a.flow-nav-item-active,
+.flow-sidebar-aside .flow-nav-flyout-link-active {
+    background: #EA580C !important;
+    background-image: none !important;
+    color: #fff !important;
+    box-shadow: 0 8px 18px rgba(234, 88, 12, 0.4) !important;
+}
+.flow-sidebar-aside nav a.bg-\[\#EA580C\]:hover,
+.flow-sidebar-aside .flow-nav-item-active:hover {
+    background: #C2410C !important;
+    color: #fff !important;
+}
+.flow-sidebar-aside nav a.bg-\[\#EA580C\] .cf-icon,
+.flow-sidebar-aside .flow-nav-item-active .cf-icon,
+.flow-sidebar-aside nav a.bg-\[\#EA580C\]:hover .cf-icon {
+    color: #fff !important;
+}
+.flow-sidebar-aside [class*="tracking-[0.22em]"],
+.flow-sidebar-aside [class*="tracking-\[0\.22em\]"] {
+    color: #FDBA74 !important;
+}
+.flow-sidebar-aside .cf-admin-signed-in {
+    background: rgba(255, 255, 255, 0.07) !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    color: #e2e8f0 !important;
+}
+.flow-sidebar-aside .cf-admin-signed-in a {
+    color: rgba(226, 232, 240, 0.88) !important;
+}
+.flow-sidebar-aside .cf-admin-signed-in a:hover {
+    background: rgba(255, 255, 255, 0.10) !important;
+    color: #fdba74 !important;
+}
+
+/* ===== ClicFlow motif palette (sky, green, gold, orange, raspberry, purple) ===== */
+.cf-brand-accent-bar,
+.flow-page-header::before,
+.flow-panel > .cf-brand-accent-bar {
+    display: block;
+    height: 4px;
+    width: 100%;
+    background: var(--cf-accent-bar, linear-gradient(90deg,#30C0F0 0%,#24B478 20%,#E4A824 40%,#EA580C 60%,#D81854 80%,#480C48 100%));
+    border-radius: 999px;
+}
+.flow-kpi-card:nth-child(6n+1) { --kpi-accent: var(--cf-sky, #30C0F0); }
+.flow-kpi-card:nth-child(6n+2) { --kpi-accent: var(--cf-green, #24B478); }
+.flow-kpi-card:nth-child(6n+3) { --kpi-accent: var(--cf-gold, #E4A824); }
+.flow-kpi-card:nth-child(6n+4) { --kpi-accent: var(--cf-orange, #EA580C); }
+.flow-kpi-card:nth-child(6n+5) { --kpi-accent: var(--cf-raspberry, #D81854); }
+.flow-kpi-card:nth-child(6n+6) { --kpi-accent: var(--cf-purple, #480C48); }
+.flow-kpi-card {
+    border-top: 3px solid var(--kpi-accent, var(--cf-orange, #EA580C));
+}
+.cf-icon-tile--sky { --cf-tile: var(--cf-sky, #30C0F0); }
+.cf-icon-tile--green { --cf-tile: var(--cf-green, #24B478); }
+.cf-icon-tile--gold { --cf-tile: var(--cf-gold, #E4A824); }
+.cf-icon-tile--orange { --cf-tile: var(--cf-orange, #EA580C); }
+.cf-icon-tile--raspberry { --cf-tile: var(--cf-raspberry, #D81854); }
+.cf-icon-tile--purple { --cf-tile: var(--cf-purple, #480C48); }
+.cf-badge-sky { background: color-mix(in srgb, var(--cf-sky, #30C0F0) 16%, white); color: #0369a1; }
+.cf-badge-green { background: color-mix(in srgb, var(--cf-green, #24B478) 16%, white); color: #047857; }
+.cf-badge-gold { background: color-mix(in srgb, var(--cf-gold, #E4A824) 18%, white); color: #a16207; }
+.cf-badge-orange { background: color-mix(in srgb, var(--cf-orange, #EA580C) 16%, white); color: #c2410c; }
+.cf-badge-raspberry { background: color-mix(in srgb, var(--cf-raspberry, #D81854) 16%, white); color: #be123c; }
+.cf-badge-purple { background: color-mix(in srgb, var(--cf-purple, #480C48) 18%, white); color: #480C48; }
+
+/* AI sidebar draft: field being filled live */
+.cf-ai-filling {
+    box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.45) !important;
+    border-color: rgb(251, 146, 60) !important;
+    transition: box-shadow .2s ease;
+}
+
+/* AI chat panel (right, full height) */
+.cf-ai-chat { width: 100%; }
+.cf-ai-chat-resize:hover, .cf-ai-chat-resizing .cf-ai-chat-resize { background: rgba(251, 146, 60, 0.35); }
+.cf-ai-chat-resizing, .cf-ai-chat-resizing * { cursor: col-resize !important; user-select: none !important; }
+@media (min-width: 1024px) {
+    .cf-ai-chat { width: var(--cf-ai-chat-w, 400px); }
+    html.cf-ai-chat-open .flow-app-body { padding-inline-end: var(--cf-ai-chat-w, 400px); }
+    html.cf-ai-chat-open [data-cf-messenger] { inset-inline-end: calc(var(--cf-ai-chat-w, 400px) + 1.5rem); }
+}
+@media (max-width: 1023.98px) {
+    html.cf-ai-chat-open body { overflow: hidden; }
+}
+@keyframes cf-ai-dot { 0%, 80%, 100% { transform: translateY(0); opacity: .45; } 40% { transform: translateY(-4px); opacity: 1; } }
+.cf-ai-dot { animation: cf-ai-dot 1s infinite ease-in-out; }
+
+/* Collapsed menu: keep the icons visible and centred */
+.cf-shell-collapsed .flow-sidebar-aside nav a,
+.cf-shell-collapsed .flow-sidebar-aside .flow-nav-flyout-trigger,
+.cf-shell-collapsed .flow-sidebar-aside [data-ai-chat-launcher] { justify-content: center; }

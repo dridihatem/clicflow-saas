@@ -1,0 +1,1 @@
+@include('errors.layout', ['code' => 419, 'reload' => true, 'title' => ['fr' => "Session expirée", 'en' => "Session expired"], 'message' => ['fr' => "Votre session a expiré pour des raisons de sécurité. Actualisez la page puis réessayez.", 'en' => "Your session expired for security reasons. Refresh the page and try again."]])

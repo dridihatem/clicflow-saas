@@ -1,0 +1,9 @@
+{
+  "Odoo sync companion": "Odoo sync companion",
+  "Connect your Odoo database (JSON-RPC) to keep clients, quotes, invoices, and projects in sync.": "Connect your Odoo database (JSON-RPC) to keep clients, quotes, invoices, and projects in sync.",
+  "Open Odoo settings": "Open Odoo settings",
+  "Activate the free Odoo sync module to unlock Settings → Odoo.": "Activate the free Odoo sync module to unlock Settings → Odoo.",
+  "Activate Odoo sync for free from the modules catalog or Settings → Modules": "Activate Odoo sync for free from the modules catalog or Settings → Modules",
+  "Open Settings → Odoo and enter your URL, database, user, and API key": "Open Settings → Odoo and enter your URL, database, user, and API key",
+  "Test the connection, then sync clients, quotes, invoices, and projects": "Test the connection, then sync clients, quotes, invoices, and projects"
+}

@@ -1,0 +1,39 @@
+{
+  "slug": "notion-sync",
+  "name": "Notion Sync",
+  "version": "1.0.0",
+  "description": "Push projects to a Notion database and keep credentials in module settings.",
+  "author": "Flowqil",
+  "nav": {
+    "icon": "documents"
+  },
+  "integrations": {
+    "projects": true,
+    "clients": false,
+    "invoices": false,
+    "proposals": false,
+    "forms": false,
+    "payments": false,
+    "calendar": false,
+    "providers": false,
+    "tickets": false
+  },
+  "settings": {
+    "notion_api_token": { "type": "secret", "label": "Notion API token" },
+    "notion_database_id": { "type": "string", "label": "Notion database ID" },
+    "sync_enabled": { "type": "boolean", "label": "Enable sync", "default": false }
+  },
+  "requires": {
+    "plan_features": ["modules"]
+  },
+  "locales": {
+    "en": {
+      "name": "Notion Sync",
+      "description": "Push projects to a Notion database and manage sync from settings."
+    },
+    "fr": {
+      "name": "Sync Notion",
+      "description": "Envoyez les projets vers une base Notion et gérez la synchronisation."
+    }
+  }
+}

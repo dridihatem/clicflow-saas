@@ -1,0 +1,44 @@
+{
+  "slug": "real-estate",
+  "name": "Real estate",
+  "version": "1.0.0",
+  "description": "Offers, demands, images and contracts for agencies.",
+  "author": "Flowqil",
+  "nav": {
+    "icon": "projects"
+  },
+  "integrations": {
+    "clients": true,
+    "invoices": true,
+    "projects": true,
+    "forms": false,
+    "payments": false,
+    "calendar": true,
+    "proposals": true,
+    "providers": true,
+    "tickets": false
+  },
+  "requires": {
+    "plan_features": [
+      "modules"
+    ]
+  },
+  "locales": {
+    "en": {
+      "name": "Real estate",
+      "description": "Offers, demands, images and contracts for agencies."
+    },
+    "fr": {
+      "name": "Real estate",
+      "description": "Offers, demands, images and contracts for agencies."
+    }
+  },
+  "ai": {
+    "modes": [
+      "summary",
+      "client_email",
+      "project_description"
+    ],
+    "label": "Nova drafts listing summaries and client emails."
+  }
+}

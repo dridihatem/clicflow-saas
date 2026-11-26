@@ -1,0 +1,36 @@
+{
+  "slug": "woocommerce-sync",
+  "name": "WooCommerce sync",
+  "version": "1.0.0",
+  "description": "Connect WooCommerce and sync products, prices and inventory.",
+  "author": "Flowqil",
+  "nav": {
+    "icon": "documents"
+  },
+  "integrations": {
+    "clients": true,
+    "invoices": true,
+    "projects": true,
+    "forms": false,
+    "payments": false,
+    "calendar": false,
+    "proposals": false,
+    "providers": false,
+    "tickets": false
+  },
+  "requires": {
+    "plan_features": [
+      "modules"
+    ]
+  },
+  "locales": {
+    "en": {
+      "name": "WooCommerce sync",
+      "description": "Connect WooCommerce and sync products, prices and inventory."
+    },
+    "fr": {
+      "name": "WooCommerce sync",
+      "description": "Connect WooCommerce and sync products, prices and inventory."
+    }
+  }
+}

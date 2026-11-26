@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+Disallow: /checkout
+Disallow: /cart
+Disallow: /login
+Disallow: /register
+Disallow: /dashboard
+Disallow: /admin
+Disallow: /portal
+Disallow: /settings
+
+Sitemap: /sitemap.xml

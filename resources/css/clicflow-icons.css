@@ -1,0 +1,191 @@
+/* ClicFlow animated stroke icons — shared across admin, company, portal, provider, team. */
+
+.cf-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    line-height: 0;
+    color: inherit;
+    vertical-align: middle;
+}
+
+.cf-icon-svg {
+    width: 1em;
+    height: 1em;
+    display: block;
+    overflow: visible;
+    transform-origin: 50% 50%;
+}
+
+.cf-icon--sm { width: 1rem; height: 1rem; font-size: 1rem; }
+.cf-icon--md { width: 1.25rem; height: 1.25rem; font-size: 1.25rem; }
+.cf-icon--lg { width: 1.75rem; height: 1.75rem; font-size: 1.75rem; }
+.cf-icon--xl { width: 2.25rem; height: 2.25rem; font-size: 2.25rem; }
+
+.cf-icon--tile {
+    width: 3.25rem;
+    height: 3.25rem;
+    font-size: 1.7rem;
+    border-radius: 0.95rem;
+    background: color-mix(in srgb, currentColor 12%, #fff);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 16%, transparent);
+    transition: transform 0.28s ease, box-shadow 0.28s ease, background 0.28s ease;
+}
+
+.cf-icon--tile.cf-icon--lg,
+.cf-icon--tile.cf-icon--xl {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.85rem;
+}
+
+.cf-icon-tone--orange { color: #EA580C; background: #FFF7ED; box-shadow: inset 0 0 0 1px #FED7AA; }
+.cf-icon-tone--amber  { color: #D97706; background: #FFFBEB; box-shadow: inset 0 0 0 1px #FDE68A; }
+.cf-icon-tone--violet { color: #7C3AED; background: #F5F3FF; box-shadow: inset 0 0 0 1px #DDD6FE; }
+.cf-icon-tone--emerald{ color: #059669; background: #ECFDF5; box-shadow: inset 0 0 0 1px #A7F3D0; }
+.cf-icon-tone--teal   { color: #0F766E; background: #F0FDFA; box-shadow: inset 0 0 0 1px #99F6E4; }
+.cf-icon-tone--sky    { color: #0284C7; background: #F0F9FF; box-shadow: inset 0 0 0 1px #BAE6FD; }
+.cf-icon-tone--rose   { color: #E11D48; background: #FFF1F2; box-shadow: inset 0 0 0 1px #FECDD3; }
+.cf-icon-tone--slate  { color: #334155; background: #F8FAFC; box-shadow: inset 0 0 0 1px #E2E8F0; }
+.cf-icon-tone--blue   { color: #2563EB; background: #EFF6FF; box-shadow: inset 0 0 0 1px #BFDBFE; }
+.cf-icon-tone--red    { color: #DC2626; background: #FEF2F2; box-shadow: inset 0 0 0 1px #FECACA; }
+
+.dark .cf-icon--tile {
+    background: color-mix(in srgb, currentColor 18%, #0f172a);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 28%, transparent);
+}
+
+.cf-icon-stroke {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: cf-icon-draw 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.cf-icon-fill {
+    fill: currentColor;
+    stroke: none;
+    opacity: 0;
+    transform-origin: center;
+    animation: cf-icon-fill-in 0.45s ease forwards;
+}
+
+@keyframes cf-icon-draw {
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes cf-icon-fill-in {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes cf-icon-pop {
+    0% { transform: scale(1) rotate(0deg); }
+    35% { transform: scale(1.14) rotate(-6deg); }
+    60% { transform: scale(0.96) rotate(3deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes cf-icon-wiggle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-2px); }
+}
+
+a:hover > .cf-icon .cf-icon-svg,
+a:hover .cf-icon--tile .cf-icon-svg,
+button:hover > .cf-icon .cf-icon-svg,
+.group:hover > .cf-icon .cf-icon-svg,
+.portal-nav-card:hover .cf-icon-svg,
+.portal-stat:hover .cf-icon-svg,
+.flow-dashboard-chip:hover .cf-icon-svg,
+.flow-nav-item-inactive:hover .cf-icon-svg,
+.flow-nav-flyout-trigger:hover .cf-icon-svg {
+    animation: cf-icon-pop 0.5s ease;
+}
+
+.portal-nav-card:hover .cf-icon--tile,
+.portal-stat:hover .cf-icon--tile {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow:
+        inset 0 0 0 1px color-mix(in srgb, currentColor 28%, transparent),
+        0 10px 22px -12px color-mix(in srgb, currentColor 45%, transparent);
+}
+
+/* After draw-in, a very slow idle on tiles only */
+.cf-icon--tile .cf-icon-svg {
+    animation: cf-icon-wiggle 3.6s ease-in-out 1s infinite;
+}
+
+.flow-nav-item-active > .cf-icon,
+.flow-nav-item-active .cf-icon {
+    color: inherit;
+}
+
+/* Sidebar: slightly larger, crisp on navy */
+.flow-sidebar-aside .cf-icon--md {
+    width: 1.3rem;
+    height: 1.3rem;
+    font-size: 1.3rem;
+}
+
+/* Enlarge Accès rapide tiles */
+.portal-nav-card__icon {
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+    border-radius: 1rem !important;
+    font-size: 1.85rem !important;
+}
+
+.portal-nav-card__icon .cf-icon {
+    font-size: inherit;
+    width: 1em;
+    height: 1em;
+    background: transparent;
+    box-shadow: none;
+}
+
+/* KPI / stat cards: large coloured tile, same family as Accès rapide */
+.cf-icon--tile.cf-stat-tile {
+    width: 2.875rem;
+    height: 2.875rem;
+    font-size: 1.45rem;
+    border-radius: 0.9rem;
+}
+
+.cf-kpi:hover .cf-icon--tile,
+.cf-kpi-link:hover .cf-icon--tile {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow:
+        inset 0 0 0 1px color-mix(in srgb, currentColor 28%, transparent),
+        0 10px 22px -12px color-mix(in srgb, currentColor 45%, transparent);
+}
+
+.cf-kpi:hover .cf-icon-svg,
+.cf-kpi-link:hover .cf-icon-svg {
+    animation: cf-icon-pop 0.5s ease;
+}
+
+/* Topbar buttons: inline SVG icons */
+.cf-topbar-icon { font-size: 1.15rem; width: 1.15rem; height: 1.15rem; }
+
+@media (prefers-reduced-motion: reduce) {
+    .cf-icon-stroke,
+    .cf-icon-fill,
+    .cf-icon-svg,
+    .cf-icon--tile,
+    .portal-nav-card:hover .cf-icon-svg,
+    .portal-stat:hover .cf-icon-svg,
+    a:hover > .cf-icon .cf-icon-svg,
+    .cf-icon--tile .cf-icon-svg {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        stroke-dashoffset: 0 !important;
+        opacity: 1 !important;
+    }
+}

@@ -1,0 +1,9 @@
+{
+  "Odoo sync companion": "Complemento de sincronización Odoo",
+  "Connect your Odoo database (JSON-RPC) to keep clients, quotes, invoices, and projects in sync.": "Conecta tu base de datos Odoo (JSON-RPC) para mantener sincronizados clientes, presupuestos, facturas y proyectos.",
+  "Open Odoo settings": "Abrir ajustes de Odoo",
+  "Activate the free Odoo sync module to unlock Settings → Odoo.": "Activa el módulo gratuito de sincronización Odoo para desbloquear Ajustes → Odoo.",
+  "Activate Odoo sync for free from the modules catalog or Settings → Modules": "Activa la sincronización con Odoo gratis desde el catálogo de módulos o Ajustes → Módulos",
+  "Open Settings → Odoo and enter your URL, database, user, and API key": "Abre Ajustes → Odoo e introduce la URL, la base de datos, el usuario y la clave API",
+  "Test the connection, then sync clients, quotes, invoices, and projects": "Prueba la conexión y luego sincroniza clientes, presupuestos, facturas y proyectos"
+}

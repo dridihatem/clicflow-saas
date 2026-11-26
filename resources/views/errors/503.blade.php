@@ -1,0 +1,1 @@
+@include('errors.layout', ['code' => 503, 'reload' => true, 'title' => ['fr' => "Maintenance en cours", 'en' => "Under maintenance"], 'message' => ['fr' => "ClicFlow est en cours de maintenance. Nous revenons très vite, merci de votre patience.", 'en' => "ClicFlow is under maintenance. We will be back shortly, thank you for your patience."]])

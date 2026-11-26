@@ -1,0 +1,50 @@
+{
+  "slug": "odoo-sync",
+  "name": "Odoo sync",
+  "version": "1.0.0",
+  "description": "Connect Odoo and sync clients, quotes, invoices, and projects.",
+  "author": "Flowqil",
+  "nav": {
+    "icon": "documents"
+  },
+  "integrations": {
+    "clients": true,
+    "invoices": true,
+    "projects": true,
+    "forms": false,
+    "payments": false,
+    "calendar": false,
+    "proposals": true,
+    "providers": false,
+    "tickets": false
+  },
+  "requires": {
+    "plan_features": []
+  },
+  "locales": {
+    "en": {
+      "name": "Odoo sync",
+      "description": "Connect Odoo and sync clients, quotes, invoices, and projects."
+    },
+    "fr": {
+      "name": "Synchro Odoo",
+      "description": "Connectez Odoo et synchronisez clients, devis, factures et projets."
+    },
+    "es": {
+      "name": "Sincronización Odoo",
+      "description": "Conecta Odoo y sincroniza clientes, presupuestos, facturas y proyectos."
+    },
+    "ar": {
+      "name": "مزامنة Odoo",
+      "description": "اربط Odoo وزامن العملاء والعروض والفواتير والمشاريع."
+    },
+    "hi": {
+      "name": "Odoo सिंक",
+      "description": "Odoo कनेक्ट करें और क्लाइंट, कोट, इनवॉइस तथा प्रोजेक्ट सिंक करें।"
+    },
+    "id": {
+      "name": "Sinkronisasi Odoo",
+      "description": "Hubungkan Odoo dan sinkronkan klien, penawaran, faktur, dan proyek."
+    }
+  }
+}

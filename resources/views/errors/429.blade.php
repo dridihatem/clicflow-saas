@@ -1,0 +1,1 @@
+@include('errors.layout', ['code' => 429, 'reload' => true, 'title' => ['fr' => "Trop de tentatives", 'en' => "Too many requests"], 'message' => ['fr' => "Vous avez effectué trop de requêtes. Patientez une minute puis réessayez.", 'en' => "You made too many requests. Please wait a minute and try again."]])

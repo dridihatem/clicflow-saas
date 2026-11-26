@@ -1,0 +1,55 @@
+{
+  "slug": "comptabilite",
+  "name": "Comptabilité",
+  "version": "1.1.0",
+  "description": "Standard international accounting: chart of accounts, journals, entries, and reports.",
+  "author": "Flowqil",
+  "nav": {
+    "icon": "coins"
+  },
+  "pages": [
+    { "slug": "accounts", "label": "Chart of accounts", "label_key": "nav_accounts", "view": "accounts" },
+    { "slug": "journals", "label": "Journals & entries", "label_key": "nav_journals", "view": "journals" },
+    { "slug": "reports", "label": "Reports", "label_key": "nav_reports", "view": "reports" }
+  ],
+  "integrations": {
+    "clients": true,
+    "projects": true,
+    "invoices": true,
+    "payments": false,
+    "calendar": false,
+    "proposals": true,
+    "forms": false,
+    "providers": false,
+    "tickets": false
+  },
+  "requires": {
+    "plan_features": ["modules"]
+  },
+  "locales": {
+    "en": {
+      "name": "Accounting",
+      "description": "Standard international accounting: chart of accounts, journals, entries, and reports."
+    },
+    "fr": {
+      "name": "Comptabilité",
+      "description": "Comptabilité standard internationale : plan comptable, journaux, écritures et rapports."
+    },
+    "es": {
+      "name": "Contabilidad",
+      "description": "Contabilidad estándar internacional: plan de cuentas, diarios, asientos e informes."
+    },
+    "ar": {
+      "name": "المحاسبة",
+      "description": "محاسبة قياسية دولية: دليل حسابات، يوميات، قيود وتقارير."
+    },
+    "hi": {
+      "name": "लेखांकन",
+      "description": "मानक अंतरराष्ट्रीय लेखांकन: खातों का चार्ट, जर्नल, प्रविष्टियाँ और रिपोर्ट।"
+    },
+    "id": {
+      "name": "Akuntansi",
+      "description": "Akuntansi standar internasional: bagan akun, jurnal, entri, dan laporan."
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "Odoo sync companion": "Odoo सिंक साथी",
+  "Connect your Odoo database (JSON-RPC) to keep clients, quotes, invoices, and projects in sync.": "क्लाइंट, कोट, इनवॉइस और प्रोजेक्ट सिंक रखने के लिए अपना Odoo डेटाबेस (JSON-RPC) कनेक्ट करें।",
+  "Open Odoo settings": "Odoo सेटिंग्स खोलें",
+  "Activate the free Odoo sync module to unlock Settings → Odoo.": "सेटिंग्स → Odoo अनलॉक करने के लिए मुफ़्त Odoo सिंक मॉड्यूल सक्रिय करें।",
+  "Activate Odoo sync for free from the modules catalog or Settings → Modules": "मॉड्यूल कैटलॉग या सेटिंग्स → मॉड्यूल से मुफ़्त में Odoo सिंक सक्रिय करें",
+  "Open Settings → Odoo and enter your URL, database, user, and API key": "सेटिंग्स → Odoo खोलें और URL, डेटाबेस, उपयोगकर्ता तथा API कुंजी दर्ज करें",
+  "Test the connection, then sync clients, quotes, invoices, and projects": "कनेक्शन जाँचें, फिर क्लाइंट, कोट, इनवॉइस और प्रोजेक्ट सिंक करें"
+}

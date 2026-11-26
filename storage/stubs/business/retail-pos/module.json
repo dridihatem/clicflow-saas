@@ -1,0 +1,46 @@
+{
+  "slug": "retail-pos",
+  "name": "Retail POS",
+  "version": "1.1.0",
+  "description": "Included in the E-commerce pack (products, inventory, POS).",
+  "author": "Flowqil",
+  "nav": {
+    "icon": "documents"
+  },
+  "related_modules": [
+    {
+      "slug": "ecommerce",
+      "name": "E-commerce",
+      "required": true,
+      "paid": true,
+      "price_hint": "required pack"
+    }
+  ],
+  "integrations": {
+    "clients": true,
+    "invoices": true,
+    "projects": true,
+    "forms": false,
+    "payments": false,
+    "calendar": false,
+    "proposals": false,
+    "providers": false,
+    "tickets": false
+  },
+  "requires": {
+    "plan_features": [
+      "modules",
+      "ecommerce"
+    ]
+  },
+  "locales": {
+    "en": {
+      "name": "Retail POS",
+      "description": "Included in the E-commerce pack (products, inventory, POS)."
+    },
+    "fr": {
+      "name": "POS magasin",
+      "description": "Inclus dans le pack E-commerce (produits, stock, POS)."
+    }
+  }
+}

@@ -1,0 +1,1 @@
+@include('errors.layout', ['code' => 404, 'reload' => false, 'title' => ['fr' => "Page introuvable", 'en' => "Page not found"], 'message' => ['fr' => "La page que vous cherchez n'existe pas ou a été déplacée.", 'en' => "The page you are looking for does not exist or has been moved."]])

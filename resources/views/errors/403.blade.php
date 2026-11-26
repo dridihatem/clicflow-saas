@@ -1,0 +1,1 @@
+@include('errors.layout', ['code' => 403, 'reload' => false, 'title' => ['fr' => "Accès refusé", 'en' => "Access denied"], 'message' => ['fr' => "Vous n'avez pas l'autorisation d'accéder à cette page. Contactez l'administrateur de votre espace si besoin.", 'en' => "You do not have permission to access this page. Contact your workspace administrator if needed."]])

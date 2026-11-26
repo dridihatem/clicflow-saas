@@ -1,0 +1,74 @@
+{
+  "slug": "ecommerce",
+  "name": "E-commerce",
+  "version": "1.1.0",
+  "type": "bundle",
+  "description": "Products, variants, inventory, and professional fullscreen POS — one pack.",
+  "author": "Flowqil",
+  "nav": {
+    "icon": "documents"
+  },
+  "includes_modules": [
+    {
+      "slug": "products",
+      "name": "Products & variants"
+    },
+    {
+      "slug": "inventory",
+      "name": "Inventory / stock"
+    },
+    {
+      "slug": "retail-pos",
+      "name": "Retail POS"
+    }
+  ],
+  "related_modules": [
+    {
+      "slug": "shopify-sync",
+      "name": "Shopify sync",
+      "required": false,
+      "paid": true,
+      "price_hint": "from marketplace"
+    },
+    {
+      "slug": "woocommerce-sync",
+      "name": "WooCommerce sync",
+      "required": false,
+      "paid": true,
+      "price_hint": "from marketplace"
+    }
+  ],
+  "integrations": {
+    "clients": true,
+    "invoices": true,
+    "projects": true,
+    "forms": false,
+    "payments": true,
+    "calendar": false,
+    "proposals": false,
+    "providers": false,
+    "tickets": false
+  },
+  "requires": {
+    "plan_features": [
+      "modules"
+    ]
+  },
+  "locales": {
+    "en": {
+      "name": "E-commerce",
+      "description": "Products, variants, inventory, and professional fullscreen POS — one pack."
+    },
+    "fr": {
+      "name": "E-commerce",
+      "description": "Produits, variantes, stock et POS plein écran professionnel — un seul pack."
+    }
+  },
+  "ai": {
+    "modes": [
+      "summary",
+      "project_description"
+    ],
+    "label": "Nova helps with catalog descriptions."
+  }
+}
